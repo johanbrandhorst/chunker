@@ -1,0 +1,16 @@
+
+syntax = "proto3";
+
+package chunker;
+
+option go_package = "github.com/johanbrandhorst/chunker/protos/chunker";
+
+import "google/protobuf/empty.proto";
+
+service Chunker {
+    rpc Chunker(google.protobuf.Empty) returns (stream Chunk) {}
+}
+
+message Chunk {
+    bytes chunk = 1;
+}
